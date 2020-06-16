@@ -13,6 +13,6 @@ print(output3)
 print(output3 + ' Your age in 1 year will be ' + str(int(age)+1))
 
 if int(age) < 5:
-    print('hello baby')
+    print('Hello baby')
 else:
-    print('look you are grown up now')
+    print('Look at you!, you are grown up now')
