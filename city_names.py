@@ -1,5 +1,5 @@
 ''' This is fun little program to deal with lists and showing use of "if elif else"
- it takes a single input and returns name of country based on its small database :) '''
+ it takes a single input and returns name of country based on its small database :)  '''
 usa = [ "atlanta", "new york", "chicago", "baltimore"]
 uk = ["london", "bristol", "cambridge"]
 india = ["mumbai","delhi", "banglore"]
