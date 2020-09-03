@@ -14,6 +14,7 @@ while True:
     print(f'Stats: Wins({wins}) Losses({losses}) ties({ties})')
     while True: #User input loop, keep looping unless user selects a valid option
         playerMove=input('Please select an option: (r)ock, (p)aper, (s)scissor, (q)uit : ')
+        # Print final score if user decided to quit using option q
         if playerMove == 'q':
             print()
             print('All right, exiting game ....')
