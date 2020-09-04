@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # This script is to emulate classic game of "rock" "paper" "scissors"
 
 # we are going to use functions from 2 classes "sys" and "random"

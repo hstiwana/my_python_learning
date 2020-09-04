@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #simple program calculates "heads" total for a coin flipped 10 times
 result=["heads","tails","tails","heads","tails","heads","heads","tails","tails","tails"]
 headsCount=0
