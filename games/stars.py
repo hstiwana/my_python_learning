@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Program printing starts as shown below
 # * 
 # * * 
