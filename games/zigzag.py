@@ -5,6 +5,8 @@
 
 # we are using time and sys functions
 # time for sleep and sys for exit
+# without time.sleep, program runs too fast and it is hard to see it scrolling
+
 import time, sys
 indent = 0 # Denotes how many spaces to indent
 indentIncreaseing = True # Whether the indentation is increaseing or decreasing.
@@ -29,3 +31,4 @@ try:
                 indentIncreaseing = True
 except KeyboardInterrupt: #keyboard interrupt will send program to sys.exit()
     sys.exit()
+
