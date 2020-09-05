@@ -48,22 +48,22 @@ while True:
 # Compare playerMove and ComputerMoves to get results
     if playerMove == computerMove:
         print('It is a Tie!')    
-        ties = ties + 1 # Increment count
+        ties += 1 # Increment count
     elif playerMove == 'r' and computerMove == 's':
         print('Rock breaks Scissor, You Win!')    
-        wins = wins + 1 # Increment count
+        wins += 1 # Increment count
     elif playerMove == 'p' and computerMove == 'r':
         print('Paper covers Rock, You Win!')    
-        wins = wins + 1 # Increment count
+        wins += 1 # Increment count
     elif playerMove == 's' and computerMove == 'p':
         print('Scissor cut Paper, You Win!')
-        wins = wins + 1 # Increment count
+        wins += 1 # Increment count
     elif playerMove == 'r' and computerMove == 'p':
         print('Paper covers Rock, You Loss!')
-        losses = losses + 1 # Increment count
+        losses += 1 # Increment count
     elif playerMove == 'p' and computerMove == 's':
         print('Scissor cut Paper, You Loss!')
-        losses = losses + 1 # Increment count
+        losses += 1 # Increment count
     elif playerMove == 's' and computerMove == 'r':
         print('Rock breaks Scissor, You Loss!')
-        losses = losses + 1 # Increment count
+        losses += 1 # Increment count

@@ -13,7 +13,7 @@ indentIncreaseing = True # Whether the indentation is increaseing or decreasing.
 
 try:
     while True: # The main program loop.
-        print(' ' * indent, end='')
+        print(' ' * indent, end='')# print by multiplecation with spaces, replace newline end with empty string.
         print('********')
         time.sleep(0.1) # Pause I/O for 1/10 of a second.
 
