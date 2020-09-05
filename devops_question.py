@@ -40,7 +40,7 @@ try:
         else:
             break
 
-    if skill1.lower() in language and (skill2 == 'yes' and skill3 == 'yes') and int(skill4) >= 5:
+    if skill1 in language and (skill2 == 'yes' and skill3 == 'yes') and int(skill4) >= 5:
         print('Congrats you have right skill set for this Role!!')
     elif int(skill4) < 5:
         print(f'Sorry, you are lacking expertise in clouds, your experience is "{skill4}" years but minimum requirement is 5')
