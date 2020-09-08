@@ -33,11 +33,11 @@ try:
             break
 
     if skill1 in language and (skill2 == 'yes' and skill3 == 'yes') and int(skill4) >= 5:
-        print('Congrats you have right skill set for this Role!!')
+        print('\n\nCongrats you have right skill set for this Role!!')
     elif int(skill4) < 5:
-        print(f'Sorry, you are lacking expertise in clouds, your experience is "{skill4}" years but minimum requirement is 5')
+        print(f'\n\nSorry, you are lacking expertise in clouds, your experience is "{skill4}" years but minimum requirement is 5')
     elif skill2 == 'no' or skill3 == 'no':
-        print('Sorry, you are lacking expertise in some of the required skills e.g. Azure or K8s')
+        print('\n\nSorry, you are lacking expertise in some of the required skills e.g. Azure or K8s')
 except KeyboardInterrupt:
     print('\n\nExiting out on keyboard interrupt')
     sys.exit()
