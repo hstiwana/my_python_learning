@@ -32,6 +32,10 @@ def take_input():
         else:
             print('Must enter a number. Bye!')
             quit()
+    else:
+        print('Must enter a number. Bye!')
+        quit()
+
 
     # check if "h" has a value
     h = input('Please input value for height: ')
@@ -45,6 +49,9 @@ def take_input():
         else:
             print('Must enter a number. Bye!')
             quit()
+    else:
+        print('Must enter a number. Bye!')
+        quit()
 
 # define another function to calculate area of triangle
 def area_of_triangle(base,height):
