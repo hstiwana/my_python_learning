@@ -20,7 +20,6 @@ def take_input():
         take_input.height = int(input('Please input value for height: '))
     except ValueError as e:
         print(f'ERROR: Invalid input, try again\n\n\nError Details are given below:\n\n {e}')
-        #Show error and line shown above and exit 
         quit()
 
 # define another function to calculate area of triangle

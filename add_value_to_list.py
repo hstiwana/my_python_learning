@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def add_and_before_end(var_list, var_to_add):
    #spam = ['apples', 'bananas', 'tofu', 'cats']
    var_list = input('Please input a list of values : ')
