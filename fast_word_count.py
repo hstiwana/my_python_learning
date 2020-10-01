@@ -7,15 +7,20 @@ def helper():
         print(f'Usage: To limit line count to top few e.g. top 5 : python {sys.argv[0]} /etc/hosts 5')
         print(f'Usage: To limit line count to top few e.g. top 5 in reverse order : python {sys.argv[0]} /etc/hosts 5 reverse')
         print(f'Usage: To see time taken to run, add "timeit" argument in list of arguments e.g. python {sys.argv[0]} /etc/hosts timeit')
-        print(f'\nUse -h as argument to see usage/this message\n')
+        print(f'\nUse -h/-H/-help/--help as argument to see usage/this message\n')
         quit()
 def word_count():
-    if sys.argv.__contains__('-h'):
-        # Call helper function
-        helper()
+     # make a tuple of helper function callers
+    helper_args = ('-h','-H','--help','-help')
+    for helper_arg in helper_args:
+        # Call helper function only if argument list contains one of the tuple item
+        if sys.argv.__contains__(helper_arg):
+            helper()
+    # Check if we have 2 or more arguments
     if len(sys.argv) >= 2:
         in_file = sys.argv[1]
     else:
+        # if argument list is not 2 or more, call helper function
         helper()
     try:
         # lets "try" to open file passed as argument and handle few exceptions
