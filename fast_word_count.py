@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 # this is created to count number of words in given file
 import sys
-import timeit
-
-def word_count():
-    if len(sys.argv) >= 2:
-        in_file = sys.argv[1]
-    else:
+def helper():
         print('Fatal: You forgot to include the file name on the command line.')
         print(f'Usage: To see count of all lines:  python {sys.argv[0]} /etc/hosts')        
         print(f'Usage: To limit line count to top few e.g. top 5 : python {sys.argv[0]} /etc/hosts 5')
         print(f'Usage: To limit line count to top few e.g. top 5 in reverse order : python {sys.argv[0]} /etc/hosts 5 reverse')
+        print(f'Usage: To see time taken to run, add "timeit" argument in list of arguments e.g. python {sys.argv[0]} /etc/hosts timeit')
+        print(f'\nUse -h as argument to see usage/this message\n')
         quit()
+def word_count():
+    if sys.argv.__contains__('-h'):
+        # Call helper function
+        helper()
+    if len(sys.argv) >= 2:
+        in_file = sys.argv[1]
+    else:
+        helper()
     try:
         # lets "try" to open file passed as argument and handle few exceptions
         fhand = open(in_file,'r')
@@ -70,10 +75,11 @@ def word_count():
     else:
         reverse=False
         res = dict(sorted(words_dic.items(), key=lambda some_lambda_fun_name_p:some_lambda_fun_name_p[1], reverse=reverse)[-print_n_lines:])
-    #res = dict(sorted(words_dic.items(), key=lambda some_lambda_fun_name_p:some_lambda_fun_name_p[1], reverse=reverse)[-print_n_lines:])
     for my_word,my_counter in res.items():
         print(my_counter,my_word)
-    print("_"*30)
+    # Print 30 dash lines if we are going to use timeit to show run time    
+    if sys.argv.__contains__('timeit'):
+        print("_"*30)
     #### Method 2 #####
     #### NOTE: we are missing reversed sort in this one
     # Sorts the dictionary words into a list and then print them out
@@ -83,7 +89,10 @@ def word_count():
     #     print(words_dic[word], word)
 
 if __name__ == '__main__':
-# Lets see how much time it is taking to calculate
-# NOTE: time taken to input is also counted as function is waiting for user input    
-    print('Total time taken:', timeit.timeit('word_count()', setup='from __main__ import word_count',number=1))
-
+    # Lets see how much time it is taking to calculate
+    # NOTE: time taken to input is also counted as function is waiting for user input
+    if sys.argv.__contains__('timeit'):
+        import timeit
+        print('Total time taken:', timeit.timeit('word_count()', setup='from __main__ import word_count',number=1))
+    else:
+        word_count()
