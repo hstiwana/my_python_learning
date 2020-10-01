@@ -29,12 +29,16 @@ def word_count():
     # This loop adds each word to the dictionary and updates its count. Change 
     # all words to lower case so Horse and horse are seen as the same word.
     for line in fhand:
+        # remove : e.g. /etc/passwd file has it
         line = line.replace(':', ' ')
         for word in line.lower().split():
-                word = word.strip("'?,.;!-/\"") # strip out the stuff we ignore
+                # strip out the stuff we ignore
+                word = word.strip("'?,.;!-/\"")
                 if word not in words_dic:
-                    words_dic[word] = 0      # add word to words with 0 count
-                words_dic[word] = words_dic[word] + 1    # add 1 to the count
+                    # add word to words with 0 count
+                    words_dic[word] = 0
+                # add 1 to the count
+                words_dic[word] = words_dic[word] + 1
 
     # don't forget to close the file handle, good practice
     fhand.close()

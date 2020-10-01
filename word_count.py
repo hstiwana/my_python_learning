@@ -3,12 +3,15 @@
 
 ## uncomment it to test the commented out "Method 2" given below 
 # import pprint
+import sys
 import timeit
 
 def word_count():
-    in_file = input('Please provide a file name to parse: ')
-    if in_file == '':
-        print('Please provide a valid input!')
+    if len(sys.argv) >= 2:
+        in_file = sys.argv[1]
+    else:
+        print('Fatal: You forgot to include the directory name on the command line.')
+        print(f'Usage:  python {sys.argv[0]} /etc/hosts')
         quit()
     try:
         # lets "try" to open file passed as argument and handle few exceptions
@@ -35,10 +38,8 @@ def word_count():
         word_lines = full_text.replace(char,' ')
 
     # change case to lower to get exact count
-    word_lines = word_lines.lower()
-
     # split text to a get a list out of it
-    word_lines = word_lines.split()
+    word_lines = word_lines.lower().split()
 
     # get only unique values by making a set
     # This will reduce run time as loop will run only N number of times
