@@ -7,7 +7,7 @@ def word_count():
     if len(sys.argv) >= 2:
         in_file = sys.argv[1]
     else:
-        print('Fatal: You forgot to include the directory name on the command line.')
+        print('Fatal: You forgot to include the file name on the command line.')
         print(f'Usage:  python {sys.argv[0]} /etc/hosts')
         quit()
     try:
@@ -60,3 +60,4 @@ if __name__ == '__main__':
 # Lets see how much time it is taking to calculate
 # NOTE: time taken to input is also counted as function is waiting for user input    
     print('Total time taken:', timeit.timeit('word_count()', setup='from __main__ import word_count',number=1))
+
