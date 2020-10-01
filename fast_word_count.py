@@ -8,7 +8,9 @@ def word_count():
         in_file = sys.argv[1]
     else:
         print('Fatal: You forgot to include the file name on the command line.')
-        print(f'Usage:  python {sys.argv[0]} /etc/hosts')
+        print(f'Usage: To see count of all lines:  python {sys.argv[0]} /etc/hosts')        
+        print(f'Usage: To limit line count to top few e.g. top 5 : python {sys.argv[0]} /etc/hosts 5')
+        print(f'Usage: To limit line count to top few e.g. top 5 in reverse order : python {sys.argv[0]} /etc/hosts 5 reverse')
         quit()
     try:
         # lets "try" to open file passed as argument and handle few exceptions
@@ -45,7 +47,31 @@ def word_count():
     #### Method 1 #####
     # Sorts the dictionary words into a list and then print them out 
     # with reverse mode set to false
-    for my_word,my_counter in sorted(words_dic.items(), key=lambda some_lambda_fun_name_p:some_lambda_fun_name_p[1], reverse=False):
+    
+    # if we have 3rd argument, and it is a digit, lets use this to show number of lines
+    # similar to "tail" command in Unix.
+    if len(sys.argv) >= 3:
+        if (sys.argv[2]).isdigit():
+            print_n_lines = int(sys.argv[2])
+        else:
+            # if argument is not a digit, we show full file
+            print_n_lines=-1
+    else:
+        # if argument is not a digit, we show full file
+        print_n_lines=-1
+    
+    # handle sorting with another argument
+    # if argument list contains "reverse"
+    # show reversed output (with highest number at the top/begining)
+    # otherwise show a normal sorted output (with highest number at the bottom/end)
+    if sys.argv.__contains__("reverse"):
+        reverse=True
+        res = dict(sorted(words_dic.items(), key=lambda some_lambda_fun_name_p:some_lambda_fun_name_p[1], reverse=reverse)[:print_n_lines])
+    else:
+        reverse=False
+        res = dict(sorted(words_dic.items(), key=lambda some_lambda_fun_name_p:some_lambda_fun_name_p[1], reverse=reverse)[-print_n_lines:])
+    #res = dict(sorted(words_dic.items(), key=lambda some_lambda_fun_name_p:some_lambda_fun_name_p[1], reverse=reverse)[-print_n_lines:])
+    for my_word,my_counter in res.items():
         print(my_counter,my_word)
     print("_"*30)
     #### Method 2 #####
